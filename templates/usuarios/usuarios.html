@@ -1,0 +1,39 @@
+{% extends 'P_Admin.html' %}
+{% block title %}
+    Lista de Usuarios
+{% endblock %}
+
+{% block content %}
+    <div class="container mt-4">
+        <h2>Lista de Usuarios</h2>
+        <table class="table">
+            <thead>
+                <tr>
+
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Cedula</th>
+                    <th>Email</th>
+                    <th>Rol</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for usuario in usuarios %}
+                    <tr>
+
+                        <td>{{ usuario.nombre }}</td>
+                        <td>{{ usuario.apellido }}</td>
+                        <td>{{ usuario.cedula }}</td>
+                        <td>{{ usuario.email }}</td>
+                        <td>{{ usuario.id_rol }}</td>
+                        <td>
+                            <a href="{{ url_for('editar_usuario', usuario_id=usuario.id) }}" class="btn btn-info">Editar</a>
+                            <a href="{{ url_for('eliminar_usuario', usuario_id=usuario.id) }}" class="btn btn-danger">Eliminar</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

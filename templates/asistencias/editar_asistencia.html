@@ -1,0 +1,17 @@
+{% extends 'P_Profesor.html' if pagina_origen == 'pagina1' else 'P_Admin.html' %}
+{% block title %}
+    Editar Asistencia
+{% endblock %}
+
+{% block content %}
+    <div class="container mt-4">
+        <h2>Editar Asistencia</h2>
+    <form method="POST" action="{{ url_for('editar_asistencia', usuario_id=asistencia[0]) }}">
+        <label for="asistencia">Nueva Asistencia:</label>
+        <input type="text" name="asistencia" value="{{ asistencia.asistencia }}" required>
+        <input type="hidden" name="pagina_origen" value="{{ pagina_origen }}">
+        <button type="submit">Guardar Cambios</button>
+    </form>
+    <a href="{{ url_for('AsistenciaProfesor' if pagina_origen == 'pagina1' else 'AsistenciaAdmin') }}">Cancelar</a>
+    </div>
+{% endblock %}
