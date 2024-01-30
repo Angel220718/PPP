@@ -5,78 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilo.css') }}">
     <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-image: url("/img/OIP.jpeg"); /* Puedes agregar una imagen de fondo si lo deseas */
-            background-color: #15202B; /* Azul oscuro */
-            color: #ffffff; /* Color del texto */
-        }
 
-        form {
-            width: 300px;
-            margin: 0 auto;
-            padding: 20px;
-            border: 1px solid #ccc;
-            box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.1);
-            background-color: #1A2934; /* Azul claro para el fondo del formulario */
-            color: #ffffff; /* Color del texto dentro del formulario */
-            border-radius: 8px; /* Bordes redondeados */
-        }
-
-        label {
-            display: block;
-            margin-top: 10px;
-        }
-
-        input[type="email"], input[type="password"] {
-            width: 100%;
-            padding: 10px;
-            margin-top: 5px;
-            border: 1px solid #ccc;
-            box-sizing: border-box;
-            background-color: #253341; /* Color de fondo para los campos de entrada */
-            color: #ffffff; /* Color del texto dentro de los campos de entrada */
-        }
-
-        input[type="checkbox"] {
-            margin-top: 15px;
-        }
-
-        .btn-primary {
-            background-color: #3498db; /* Color de fondo para el botón */
-            color: #ffffff; /* Color del texto del botón */
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .btn-primary:hover {
-            background-color: #2980b9; /* Cambia el color al pasar el ratón sobre el botón */
-        }
-
-        a {
-            color: #3498db; /* Color del enlace */
-        }
-
-        a:hover {
-            color: #ffffff; /* Cambia el color al pasar el ratón sobre el enlace */
-        }
 
     </style>
 </head>
 <body class="text-center gradient-custom">
-
 <div class="container py-5 h-100">
+    <div class="logo-container">
+        <div class="logo">
+            <img src="{{ url_for('static', filename='img/logoISTG.png') }}" alt="Logo">
+        </div>
+    </div>
     <h2 class="mb-4">Inicio de Sesión</h2>
     {% if error %}
-        <div class="alert alert-danger" role="alert">
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
             {{ error }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
+
     {% endif %}
     <form method="POST" action="{{ url_for('login') }}">
         <div class="mb-3">

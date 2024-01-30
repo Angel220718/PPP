@@ -1,0 +1,117 @@
+body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: linear-gradient(to bottom right, #0F1C2D, #1A2934); /* Updated background gradient */
+            color: #ffffff; /* Color del texto */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        form {
+            width: 350px;
+            margin: 0 auto;
+            padding: 20px;
+            box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.2);
+            background: linear-gradient(to bottom right, #0F1C2D, #1A2934);
+            color: #ffffff;
+            border-radius: 8px;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+            color: #ffffff;
+        }
+
+        input[type="number"], input[type="password"], input[type="text"], input[type="email"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #44596B;
+            box-sizing: border-box;
+            background-color: #253341;
+            color: #ffffff;
+            border-radius: 5px;
+        }
+
+        input[type="number"]:focus, input[type="password"]:focus, input[type="text"]:focus, input[type="email"]:focus {
+            outline: none;
+            border: 1px solid #3498db;
+        }
+
+        .btn-primary {
+            background-color: #3498db;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #2980b9;
+        }
+
+        .alert-danger {
+            background-color: #C0392B;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            margin-top: 15px;
+        }
+
+        a {
+            color: #020202;
+        }
+
+        a:hover {
+            color: #ffffff;
+        }
+
+        .container {
+            background-color: transparent;
+            display: grid;
+            place-content: center;
+            width: 500px;
+        }
+
+        h2 {
+            color: #0e0e0e;
+        }
+
+        p {
+            margin-top: 15px;
+            color: #ffffff;
+        }
+
+        .gradient-custom {
+            background: linear-gradient(to right, #3498db, #6C7A89); /* Gradient background for the entire page */
+        }
+
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 200px; /* Ajusta la altura según tus necesidades */
+        }
+
+        .logo {
+            border-radius: 50%;
+            overflow: hidden;
+            height: 150px;
+            width: 160px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 95%;
+            height: 100%;
+            border-radius: 50%;
+        }

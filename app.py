@@ -53,17 +53,15 @@ def Pagina_Profesor():
 
 @app.route('/obtener_estudiantes_api')
 def obtener_estudiantes_api():
-    cedula = "0958476533"  # Cambia esto con la cedula adecuada
-    campus = "GYE"  # Cambia esto con el campus adecuado
+    cedula = "0958476533"
+    campus = "GYE"
 
-    # Realiza la solicitud a la API de estudiantes
+
     estudiantes_api_url = f"http://173.212.212.214:5000/estudiante?cedula={cedula}&campus={campus}"
     response_estudiantes = requests.get(estudiantes_api_url)
 
     if response_estudiantes.status_code == 200:
-        # Procesa los datos de la API de estudiantes (ajusta esto según el formato de respuesta de la API)
         datos_estudiantes = response_estudiantes.json()
-        # Renderiza la plantilla con los datos
         return render_template('asistencias/Mostar_Asistencia_Admin.html', datos_estudiantes=datos_estudiantes)
     else:
         return f"Error al obtener datos de la API de estudiantes. Código de estado: {response_estudiantes.status_code}"
@@ -78,19 +76,16 @@ def AsistenciaProfesor():
     registros = cursor.fetchall()
     cursor.close()
 
-    cedula = "0958476533"  # Cambia esto con la cedula adecuada
-    date_ini = "2024-01-01"
+    cedula = "0958476533"
+    date_ini = "2024-01-29"
     date_end = "2024-01-30"
 
-    # Realiza la solicitud a la API de asistencia
     asistencia_api_url = f"http://173.212.212.214:5000/asistencia?cedula={cedula}&date_ini={date_ini}&date_end={date_end}"
     response_asistencia = requests.get(asistencia_api_url)
 
     if response_asistencia.status_code == 200:
-        # Procesa los datos de la API de asistencia (puedes ajustar esto según el formato de respuesta de la API)
         datos_asistencia = response_asistencia.json()
 
-        # Renderiza la plantilla con los datos
         return render_template('asistencias/Mostar_Asistencia_Profesor.html', datos_asistencia=datos_asistencia,
                                registros=registros)
     else:
@@ -106,19 +101,16 @@ def AsistenciaAdmin():
     registros = cursor.fetchall()
     cursor.close()
 
-    cedula = "0958476533"  # Cambia esto con la cedula adecuada
+    cedula = "0958476533"
     date_ini = "2024-01-01"
-    date_end = "2024-01-30"
+    date_end = "2024-01-31"
 
-    # Realiza la solicitud a la API de asistencia
     asistencia_api_url = f"http://173.212.212.214:5000/asistencia?cedula={cedula}&date_ini={date_ini}&date_end={date_end}"
     response_asistencia = requests.get(asistencia_api_url)
 
     if response_asistencia.status_code == 200:
-        # Procesa los datos de la API de asistencia (puedes ajustar esto según el formato de respuesta de la API)
         datos_asistencia = response_asistencia.json()
 
-        # Renderiza la plantilla con los datos
         return render_template('asistencias/Mostar_Asistencia_Admin.html', datos_asistencia=datos_asistencia,
                                registros=registros)
     else:
@@ -134,13 +126,12 @@ def Pagina3():
 @app.route('/editar_datos', methods=['GET', 'POST'])
 def editar_datos():
     if request.method == 'POST':
-        # Obtener datos del formulario
         nuevos_datos = {
             "campo1": request.form['campo1'],
             "campo2": request.form['campo2']
         }
 
-        cedula = "0958476533"  # Ajusta la cédula según tus necesidades
+        cedula = "095847653"
         date_ini = "2024-01-01"
         date_end = "2024-01-30"
 
@@ -154,12 +145,11 @@ def editar_datos():
         else:
             return f"Error al actualizar datos. Código de estado: {response.status_code}"
 
-    # Lógica para mostrar el formulario de edición
     return render_template('asistencias/editar_asistencia.html')
 
 @app.route('/eliminar_datos')
 def eliminar_datos():
-    cedula = "0958476533"  # Ajusta la cédula según tus necesidades
+    cedula = "0958476533"
     date_ini = "2024-01-01"
     date_end = "2024-01-30"
 
@@ -183,20 +173,15 @@ def editar_asistencia(usuario_id):
         pagina_origen = request.form.get('pagina_origen')
         nueva_asistencia = request.form['asistencia']
 
-        # Aquí realiza la solicitud a la API para actualizar la asistencia
-        # Puedes usar requests.Put o requests.patch según la API que estés utilizando
         api_url = f"http://173.212.212.214:5000/asistencia/{usuario_id}"
         data = {"asistencia": nueva_asistencia}
         response = requests.put(api_url, json=data)
 
         if response.status_code == 200:
-            # La actualización en la API fue exitosa
             return redirect(url_for('AsistenciaProfesor' if pagina_origen == 'pagina1' else 'AsistenciaAdmin'))
         else:
-            # Hubo un error en la actualización
             return f"Error al actualizar la asistencia. Código de estado: {response.status_code}"
 
-    # Obtiene los detalles de la asistencia desde la API para mostrar en el formulario
     api_url = f"http://173.212.212.214:5000/asistencia/{usuario_id}"
     response = requests.get(api_url)
 
@@ -212,16 +197,13 @@ def editar_asistencia(usuario_id):
 @app.route('/eliminar_asistencia/<int:usuario_id>')
 @login_required
 def eliminar_asistencia(usuario_id):
-    # Realiza la solicitud a la API para eliminar la asistencia
     api_url = f"http://173.212.212.214:5000/asistencia/{usuario_id}"
     response = requests.delete(api_url)
 
     if response.status_code == 200:
-        # La eliminación en la API fue exitosa
         pagina_origen = request.args.get('pagina_origen')
         return redirect(url_for('AsistenciaProfesor' if pagina_origen == 'pagina1' else 'AsistenciaAdmin'))
     else:
-        # Hubo un error en la eliminación
         return f"Error al eliminar la asistencia. Código de estado: {response.status_code}"
 
 
@@ -386,4 +368,4 @@ def logout():
 
 if __name__ == '__main__':
     app.secret_key = 'Angel'
-    app.run(host='0.0.0.0', debug=True)
+    app.run(debug=True)
