@@ -3,17 +3,18 @@
 <head>
     <title>{% block title %} {% endblock %}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estiloPagina.css') }}">
     <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
 </head>
 <body class="bg-light d-flex flex-column min-vh-100">
 <header class="container-fluid bg-dark text-white py-3">
     <div class="container">
-        <h1>Mi Página Web</h1>
+        <h1>Asistencia Web</h1>
     </div>
 </header>
 
 <div class="container mt-3">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
         <div class="container-fluid">
             <a class="navbar-brand" href="{{ url_for('mostrar_usuarios') }}">Admin</a>
             <div class="collapse navbar-collapse" id="navbarNav">

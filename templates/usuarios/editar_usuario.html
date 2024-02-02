@@ -4,7 +4,7 @@
 {% endblock %}
 
 {% block content %}
-    <div class="container mt-4">
+    <div class="container mt-4 text-center">
         <h2>Editar Usuario</h2>
         <form method="post" action="{{ url_for('editar_usuario', usuario_id=usuario.id) }}">
             <div class="form-group">
@@ -30,7 +30,7 @@
                     <option value="2" {% if usuario.id_rol == 2 %}selected{% endif %}>Profesor</option>
                 </select>
             </div>
-            <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+            <button type="submit" class="btn btn-primary mt-3">Guardar Cambios</button>
         </form>
     </div>
 {% endblock %}

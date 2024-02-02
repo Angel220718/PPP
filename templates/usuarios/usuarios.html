@@ -5,11 +5,10 @@
 
 {% block content %}
     <div class="container mt-4">
-        <h2>Lista de Usuarios</h2>
-        <table class="table">
+        <h2 class="text-dark text-center py-2">Lista de Usuarios</h2>
+        <table class="table table-active text-center">
             <thead>
-                <tr>
-
+                <tr class="table-primary">
                     <th>Nombre</th>
                     <th>Apellido</th>
                     <th>Cedula</th>
@@ -20,8 +19,7 @@
             </thead>
             <tbody>
                 {% for usuario in usuarios %}
-                    <tr>
-
+                    <tr class="table-success">
                         <td>{{ usuario.nombre }}</td>
                         <td>{{ usuario.apellido }}</td>
                         <td>{{ usuario.cedula }}</td>

@@ -1,0 +1,49 @@
+body{
+    background-image: linear-gradient(to top, #007adf 0%, #00ecbc 100%);
+}
+
+form {
+    width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    box-shadow: 0px 0px 20px 0px rgba(131, 14, 14, 0.2);
+    background: linear-gradient(to bottom right,transparent, #0F1C2D, #1A2934, transparent);
+    color: #ffffff;
+    border-radius: 8px;
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+    color: #ffffff;
+}
+
+input[type="number"], input[type="password"], input[type="text"], input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #44596B;
+    box-sizing: border-box;
+    background-color: #253341;
+    color: #ffffff;
+    border-radius: 5px;
+}
+
+input[type="number"]:focus, input[type="password"]:focus, input[type="text"]:focus, input[type="email"]:focus {
+    outline: none;
+    border: 1px solid #3498db;
+}
+
+.btn-primary {
+    background-color: #3498db;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #183649;
+}
