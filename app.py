@@ -77,8 +77,8 @@ def AsistenciaProfesor():
     cursor.close()
 
     cedula = "0958476533"
-    date_ini = "2024-01-29"
-    date_end = "2024-01-30"
+    date_ini = "2024-01-01"
+    date_end = "2024-01-31"
 
     asistencia_api_url = f"http://173.212.212.214:5000/asistencia?cedula={cedula}&date_ini={date_ini}&date_end={date_end}"
     response_asistencia = requests.get(asistencia_api_url)

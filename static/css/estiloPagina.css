@@ -1,5 +1,7 @@
-body{
-    background-image: linear-gradient(to top, #007adf 0%, #00ecbc 100%);
+body {
+    background-color: #85FFBD;
+    background-image: linear-gradient(315deg, #85FFBD 0%, #6d8bef 71%);
+
 }
 
 form {
@@ -7,7 +9,7 @@ form {
     margin: 0 auto;
     padding: 20px;
     box-shadow: 0px 0px 20px 0px rgba(131, 14, 14, 0.2);
-    background: linear-gradient(to bottom right,transparent, #0F1C2D, #1A2934, transparent);
+    background: linear-gradient(to bottom right, transparent, #0F1C2D, #1A2934, transparent);
     color: #ffffff;
     border-radius: 8px;
 }
